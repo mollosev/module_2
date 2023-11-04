@@ -23,4 +23,9 @@ void printProfile(phoneBook *profile, int cntSocial);
 void deleteProfile(phoneBook *profile, int cntSocial);
 void editProfile(phoneBook *profile, int cntSocial);
 
+long double sum(long double a, long double b);
+long double sub(long double a, long double b);
+long double mlp(long double a, long double b);
+long double dvs(long double a, long double b);
+
 #endif
