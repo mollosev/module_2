@@ -28,4 +28,7 @@ long double sub(long double a, long double b);
 long double mlp(long double a, long double b);
 long double dvs(long double a, long double b);
 
+void init(char *ch, int *cnt, long double *a, long double *b);
+long double (*select(char *ch)) (long double a, long double b);
+
 #endif

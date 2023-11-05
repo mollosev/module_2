@@ -6,8 +6,12 @@ $(PROJECT_NAME)_1: clean
 	./$(PROJECT_NAME)_1.out
 
 $(PROJECT_NAME)_2: clean
-	gcc $(FLAGS) $(PROJECT_NAME)_2.c -o $(PROJECT_NAME)_2.out -lncurses
+	gcc $(FLAGS) $(PROJECT_NAME)_2.c -o $(PROJECT_NAME)_2.out
 	./$(PROJECT_NAME)_2.out
 
+$(PROJECT_NAME)_3: clean
+	gcc $(FLAGS) $(PROJECT_NAME)_3.c -o $(PROJECT_NAME)_3.out
+	./$(PROJECT_NAME)_3.out
+
 clean:
-	rm -rf *.out *.o *.s $(PROJECT_NAME)_1.out $(PROJECT_NAME)_2.out
+	rm -rf *.out *.o *.s $(PROJECT_NAME)_1.out $(PROJECT_NAME)_2.out $(PROJECT_NAME)_3.out
