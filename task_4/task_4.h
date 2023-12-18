@@ -32,6 +32,11 @@ typedef struct queue {
     struct queue *next;
 } queue;
 
+typedef struct btree {
+    phoneBook profile;
+    struct btree *left, *right;
+} btree;
+
 list *addElem(list *head, phoneBook a);
 list *deleteElem(list *head, int val);
 list *deleteList(list *head);
@@ -47,5 +52,13 @@ list *editProfile(list *head, int id);
 queue *addToQueue(queue *head, int value);
 queue *extractFromQueue(queue *head, int value);
 void printQueue(queue *head);
+
+void insBtree(phoneBook val, btree **q);
+void printBtree(btree *p);
+int delete(int key, btree **node);
+int editBtree(btree **p, int id);
+void addProfileBtree(btree **root);
+void deleteBtree(int key, btree **node);
+void editProfileBtree(btree **root);
 
 #endif
