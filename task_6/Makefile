@@ -14,10 +14,15 @@ $(PROJECT_NAME)_1: clean liblist.a
 $(PROJECT_NAME)_2: clean
 	gcc $(CFLAGS) -fPIC -c list.c
 	gcc $(CFLAGS) -shared list.o -o liblist.so
-	gcc $(CFLAGS) -c $(PROJECT_NAME)_1.c -o $(PROJECT_NAME)_2.o
+	gcc $(CFLAGS) -c $(PROJECT_NAME)_2.c -o $(PROJECT_NAME)_2.o
 	gcc $(CFLAGS) $(PROJECT_NAME)_2.o -o $(PROJECT_NAME)_2.out -L. -llist -lncurses
 	LD_LIBRARY_PATH = $(PWD):$(LD_LIBRARY_PATH) ./$(PROJECT_NAME)_2.out
 	./$(PROJECT_NAME)_2.out
 
+$(PROJECT_NAME)_3:
+	gcc $(CFLAGS) -c $(PROJECT_NAME)_3.c
+	gcc $(CFLAGS) $(PROJECT_NAME)_3.o -o $(PROJECT_NAME)_3.out
+	./$(PROJECT_NAME)_3.out
+
 clean:
-	rm -rf *.out *.o *.a *.so $(PROJECT_NAME)_1.out $(PROJECT_NAME)_2.out
+	rm -rf *.out *.o *.a *.so *.out

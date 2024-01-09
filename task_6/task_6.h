@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include <time.h>
+#include <dlfcn.h>
+
 #define N 20
 #define cntSocial 2
 
@@ -38,5 +40,8 @@ list *addProfile(list *head);
 void printProfile(phoneBook profile);
 void deleteProfile(phoneBook *profile);
 list *editProfile(list *head, int id);
+
+void init(char *ch, int *cnt, long double *a, long double *b);
+long double (*select(char *ch)) (long double a, long double b);
 
 #endif
