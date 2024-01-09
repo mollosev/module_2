@@ -6,12 +6,17 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <math.h>
-#define N 10
+#include <sys/stat.h>
+#include <time.h>
+#define N 100
 
 void showMenu();
 void bitwiseAccessRights(char *acc);
 int alphaToNum(char *str);
 int numToBin(int num, int *arr);
 void printBin(int *arr);
+short printRules(char *filename);
+
+unsigned int convert(char *ip_str);
 
 #endif

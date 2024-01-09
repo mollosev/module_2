@@ -11,7 +11,9 @@ int main() {
                 bitwiseAccessRights(acc);
                 break;
             case '2':
-                printw("2\n");
+                printw("Enter absolute puth file: ");
+                scanw("%s", &(*acc));
+                printRules(acc);
                 break;
             case '3':
                 printw("3\n");
@@ -113,4 +115,33 @@ void printBin(int *arr) {
         if(i < 2) printw(".");
     }
     printw("\n");
+}
+
+short printRules(char *filename) {   
+    FILE * fp;
+    if(!(fp = fopen(filename, "r"))) { printw("Invalid path!\n"); return 0; }
+    fclose(fp);
+    short binary_view = 0;
+    struct stat stat_for_file; 
+    char char_view[10];
+    stat(filename, &stat_for_file);
+    printw("Bit representation: ");
+    for(int i=8, j=-8; i>=0; i--, j+=2) {
+        short temp = stat_for_file.st_mode & (1 << i);
+        binary_view |= temp;
+        if(temp != 0) {
+            printw("1");
+            if (i==8 || i==5 || i==2) char_view[i+j]='r';
+            else if (i==1 || i==4 || i==7) char_view[i+j]='w';
+            else char_view[i+j]='x';
+        }
+        else {
+            printw("0");
+            char_view[i+j]='-';
+        }
+    }
+    printw("\n");
+    printw("Numeric representation: %ho\n", stat_for_file.st_mode & 511);
+    printw("Alphabetic representation: %s\n", char_view);
+    return binary_view;
 }
